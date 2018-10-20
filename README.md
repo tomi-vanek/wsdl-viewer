@@ -10,6 +10,33 @@ Please enter into the following input field the URL address of a WSDL and click 
 <table style="border: 1px solid gray; color: black; background-color: gainsboro; margin: 10px 0; padding: .5em;">
 <tbody><tr><td>
 
+<script type="text/javascript" language="javascript">
+function w3cXSLT() {
+	var xslt = "http://tomi.vanek.sk/xml/wsdl-viewer.xsl";
+	var wsdl = document.getElementById("wsdl-url").value;
+	if( wsdl == "" ) {
+		alert("Please enter the URL of a WSDL in the text box");
+		return;
+	} else {
+		var url="http://www.w3.org/2000/06/webdata/xslt?xslfile=" + xslt + "&amp;xmlfile=" + wsdl + "&amp;transform=Submit";
+		window.open(url);
+	}
+}
+</script>
+<noscript>
+<p>
+The following input field uses JavaScript for calling the XSLT service.
+<br />Your browser has <b>disabled JavaScript</b>.
+<br />Please enable JavaScript, so you can use the form..
+</p>
+</noscript>
+	<label for="wsdl-url">WSDL address</label>:
+	<input size="40" name="wsdl-url" id="wsdl-url" value="http://api.search.live.net/search.wsdl" type="text">
+	<input onclick="w3cXSLT(); return false;" value="Submit" id="transform" name="transform" type="button">
+</td></tr>
+</tbody></table>
+</form>
+
 I hope you will find the transformation useful.
 
 ## Usage
