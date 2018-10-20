@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="windows-1250"?>
+
+<project name="wsdl-viewer" default="build" basedir="..">
+
+	<property name="version" value="3-1-02"/>
+
+	<!-- Project directories -->
+	<property name="app" value="${basedir}/src"/>
+	<property name="target" value="${basedir}/target"/>
+	<property name="build" value="${basedir}/build"/>
+	<property name="test" value="${basedir}/test/good"/>
+
+	<property name="all-in-one.trans" value="${build}/all-in-one.xsl"/>
+	<property name="modular-viewer" value="${app}/wsdl-viewer-modules.xsl"/>
+
+	<!-- Build of Distribution Artifacts -->
+	<property name="dist" value="${target}/dist"/>
+	<property name="dist.image" value="${target}/image"/>
+	<property name="dist.image.viewer" value="${dist.image}/wsdl-viewer.xsl"/>
+	<property name="dist.zip" value="${dist}/wsdl-viewer_${version}.zip"/>
+	<property name="dist.tar" value="${dist}/wsdl-viewer_${version}.tar"/>
+	<property name="dist.tar.gz" value="${dist}/wsdl-viewer_${version}.tar.gz"/>
+
+	<!-- Test -->
+	<property name="trans" value="${dist.image.viewer}"/>
+	<property name="target.html" value="${target}/test-html"/>
+
+
+	<target name="init">
+		<!-- Create the build directory structure used in compilation step -->
+		<mkdir dir="${target.html}"/>
+		<copy todir="${target.html}" >
+			<fileset dir="${app}">
+				<include name="*.html"/>
+			</fileset>
+		</copy>
+
+		<mkdir dir="${dist}"/>
+	</target>
+
+
+	<target name="createAllInOne" depends="init">
+		<xslt in="${modular-viewer}" out="${dist.image.viewer}" style="${all-in-one.trans}" force="true"/>
+	</target>
+
+	<target name="createPackage" depends="init, createAllInOne">
+		<copy todir="${dist.image}/src" >
+			<fileset dir="${app}">
+				<exclude name="**/*.wsdl*"/>
+				<exclude name="**/*.test"/>
+				<exclude name="**/*.xsd"/>
+			</fileset>
+		</copy>
+
+		<copy todir="${dist.image}/build" >
+			<fileset dir="${build}">
+				<exclude name="**/*.bat"/>
+			</fileset>
+		</copy>
+
+		<copy todir="${dist}" >
+			<fileset file="${dist.image.viewer}"/>
+		</copy>
+
+		<zip basedir="${dist.image}" destfile="${dist.zip}"/>
+
+		<tar tarfile="${dist.tar}" basedir="${dist.image}"/>
+		<gzip zipfile="${dist.tar.gz}" src="${dist.tar}"/>
+
+		<delete file="${dist.tar}" failonerror="false"/>
+
+		<copy todir="${basedir}" >
+			<fileset file="${dist.image.viewer}"/>
+		</copy>
+	</target>
+
+	<target name="test" depends="createPackage">
+		<xslt basedir="${test}" destdir="${target.html}" includes="**/*.wsdl" extension=".html" style="${trans}" force="true"/>
+	</target>
+
+	<target name="clean">
+		<delete dir="${target}" failonerror="false"/>
+	</target>
+
+	<target name="build" depends="createPackage" />
+	<target name="rebuild" depends="clean, build" />
+
+</project>

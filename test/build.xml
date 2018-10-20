@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+ ! Licensed to the Apache Software Foundation (ASF) under one or more
+ ! contributor license agreements.  See the NOTICE file distributed with
+ ! this work for additional information regarding copyright ownership.
+ ! The ASF licenses this file to You under the Apache License, Version 2.0
+ ! (the "License"); you may not use this file except in compliance with
+ ! the License.  You may obtain a copy of the License at
+ !
+ !      http://www.apache.org/licenses/LICENSE-2.0
+ !
+ ! Unless required by applicable law or agreed to in writing, software
+ ! distributed under the License is distributed on an "AS IS" BASIS,
+ ! WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ ! See the License for the specific language governing permissions and
+ ! limitations under the License.
+ !-->
+<!--
+
+	This Ant script tests the Woden WSDL Viewer XSLT against the W3C WSDL 2.0 Test Suite.
+	
+	ChangeLog:
+	
+	2007-12-09 Arthur Ryman (ryman@ca.ibm.com, arthur.ryman@gmail.com)
+	- created
+	2007-12-17 tomi vanek (tomi.vanek@gmail.com)
+	- agent solution for Ant xslt tag base-dir handling (see prepare-test.xsl for more details)
+	
+-->
+<project default="main" basedir=".">
+
+	<property name="woden.dir" location=".." />
+	<property name="test-suite.dir" location="${woden.dir}/downloads/w3c" />
+	<property name="wsdl-viewer.dir" location="${woden.dir}/wsdl-viewer" />
+	<property name="wsdl-viewer.xsl" location="${wsdl-viewer.dir}/wsdl-viewer.xsl" />
+	<property name="result.dir" location="${woden.dir}/wsdl-viewer-test-result" />
+	<property name="prepare.xsl" location="prepare-test.xsl" />
+
+	<tstamp>
+		<format property="NOW" pattern="d-MMMM-yyyy, HH:mm:ss" locale="en,US"/>
+	</tstamp>
+
+	<!-- ================================= 
+          target: main              
+         ================================= -->
+	<target name="main" description="#### Tests WSDL Viewer" depends="w3c-html">
+	</target>
+
+	<!-- ================================= 
+	      target: init              
+	     ================================= -->
+	<target name="init" description="## WSDL Viewer Test Initialization">
+		<delete dir="${result.dir}" />
+		<mkdir dir="${result.dir}" />
+	</target>
+
+	<!-- ================================= 
+	      target: w3c-html              
+	     ================================= -->
+	<target name="w3c-html" description="#### Tests the WSDL Viewer against the W3C Test Suite">
+		<xslt force="yes" style="${prepare.xsl}" basedir="${test-suite.dir}" destdir="${test-suite.dir}" useImplicitFileset="false">
+			<fileset dir="${test-suite.dir}" includes="**/TestMetadata.xml" />
+			<globmapper from="*TestMetadata.xml" to="*test.build.xml"/>
+			<param name="timestamp" expression="${NOW}"/>
+			<param name="woden.dir" expression="${woden.dir}"/>
+			<param name="result.dir" expression="${result.dir}"/>
+		</xslt>
+
+		<subant target="test">
+			<fileset dir="${test-suite.dir}" includes="**/test.build.xml"/>
+		</subant>
+
+		<delete quiet="true">
+			<fileset dir="${test-suite.dir}" includes="**/test.build.xml"/>
+		</delete>
+	</target>
+
+</project>
+
