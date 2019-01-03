@@ -156,11 +156,9 @@
                 version="1.0"
                 exclude-result-prefixes="ws ws2 xsd soap local">
 
-   <xsl:output method="xml" version="1.0" encoding="utf-8" indent="no"
+   <xsl:output method="html" encoding="utf-8" indent="no"
                omit-xml-declaration="no"
-               media-type="text/html"
-               doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
-               doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"/>
+               media-type="text/html"/>
 
    <xsl:strip-space elements="*"/>
 
@@ -908,14 +906,14 @@ h3 {
          </b>
          <xsl:if test="$ENABLE-LINK">
             <xsl:text> </xsl:text>
-            <small>
+            <span>
                <xsl:if test="$ENABLE-OPERATIONS-PARAGRAPH">
                   <a class="local" href="#{concat($PORT-PREFIX, generate-id(.))}"> 
                      <xsl:value-of select="$PORT-TYPE-TEXT"/>
                   </a>
                </xsl:if> 
                <xsl:call-template name="render.source-code-link"/>
-            </small>
+            </span>
          </xsl:if>
       </h3>
 
@@ -974,14 +972,14 @@ h3 {
          </b>
          <xsl:if test="$ENABLE-LINK">
             <xsl:text> </xsl:text>
-            <small>
+            <span>
                <xsl:if test="$ENABLE-OPERATIONS-PARAGRAPH">
                   <a class="local" href="#{concat($PORT-PREFIX, generate-id($port-type))}"> 
                      <xsl:value-of select="$PORT-TYPE-TEXT"/>
                   </a>
                </xsl:if> 
                <xsl:call-template name="render.source-code-link"/>
-            </small>
+            </span>
          </xsl:if>
       </h3>
 
@@ -1402,9 +1400,9 @@ h3 {
 			         </xsl:apply-templates>
 		       </xsl:when>
 		       <xsl:otherwise>
-			         <small style="color:blue">
+			         <span style="color:blue">
 				           <xsl:value-of select="$RECURSIVE"/>
-			         </small>
+			         </span>
 		       </xsl:otherwise>
 	     </xsl:choose>
 
@@ -1436,9 +1434,9 @@ h3 {
 			         </ul>
 		       </xsl:when>
 		       <xsl:otherwise>
-			         <small style="color:blue">
+			         <span style="color:blue">
 				           <xsl:value-of select="$RECURSIVE"/>
-			         </small>
+			         </span>
 		       </xsl:otherwise>
 	     </xsl:choose>
    </xsl:template>
@@ -1563,9 +1561,9 @@ h3 {
 			         </xsl:if>
 		       </xsl:when>
 		       <xsl:otherwise>
-			         <small style="color:blue">
+			         <span style="color:blue">
 				           <xsl:value-of select="$RECURSIVE"/>
-			         </small>
+			         </span>
 		       </xsl:otherwise>
 	     </xsl:choose>
 
@@ -1631,9 +1629,9 @@ h3 {
 			         </xsl:apply-templates>
 		       </xsl:when>
 		       <xsl:otherwise>
-			         <small style="color:blue">
+			         <span style="color:blue">
 				           <xsl:value-of select="$RECURSIVE"/>
-			         </small>
+			         </span>
 		       </xsl:otherwise>
 	     </xsl:choose>
    </xsl:template>
@@ -1715,7 +1713,7 @@ h3 {
 		       </xsl:variable>
 
 		       <xsl:if test="string-length($recursion.test) != 0">
-			         <small style="color:blue">
+			         <span style="color:blue">
 				           <xsl:value-of select="$properties"/>
 				           <xsl:variable name="elem-type"
                              select="$consolidated-xsd[@name = $type-local-name and (not(contains(local-name(current()), 'element')) or contains(local-name(), 'Type'))][1]"/>
@@ -1739,7 +1737,7 @@ h3 {
 						               </xsl:apply-templates>
 					             </xsl:otherwise>
 				           </xsl:choose>
-			         </small>
+			         </span>
 		       </xsl:if>
 	     </xsl:if>
    </xsl:template>

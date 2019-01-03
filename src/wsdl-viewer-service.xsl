@@ -94,7 +94,7 @@
 <xsl:template match="ws2:interface" mode="service">
 	<h3>Interface <b><xsl:value-of select="@name" /></b>
 <xsl:if test="$ENABLE-LINK">
-<xsl:text> </xsl:text><small><xsl:if test="$ENABLE-OPERATIONS-PARAGRAPH"><a class="local" href="#{concat($PORT-PREFIX, generate-id(.))}"> <xsl:value-of select="$PORT-TYPE-TEXT"/></a></xsl:if> <xsl:call-template name="render.source-code-link"/></small>
+<xsl:text> </xsl:text><span><xsl:if test="$ENABLE-OPERATIONS-PARAGRAPH"><a class="local" href="#{concat($PORT-PREFIX, generate-id(.))}"> <xsl:value-of select="$PORT-TYPE-TEXT"/></a></xsl:if> <xsl:call-template name="render.source-code-link"/></span>
 </xsl:if>
 </h3>
 
@@ -151,7 +151,7 @@
 
 	<h3>Port <b><xsl:value-of select="@name" /></b>
 <xsl:if test="$ENABLE-LINK">
-<xsl:text> </xsl:text><small><xsl:if test="$ENABLE-OPERATIONS-PARAGRAPH"><a class="local" href="#{concat($PORT-PREFIX, generate-id($port-type))}"> <xsl:value-of select="$PORT-TYPE-TEXT"/></a></xsl:if> <xsl:call-template name="render.source-code-link"/></small>
+<xsl:text> </xsl:text><span><xsl:if test="$ENABLE-OPERATIONS-PARAGRAPH"><a class="local" href="#{concat($PORT-PREFIX, generate-id($port-type))}"> <xsl:value-of select="$PORT-TYPE-TEXT"/></a></xsl:if> <xsl:call-template name="render.source-code-link"/></span>
 </xsl:if>
 </h3>
 

@@ -153,14 +153,14 @@
 	xmlns:local="http://tomi.vanek.sk/xml/wsdl-viewer"
 	exclude-result-prefixes="ws ws2 xsd soap local">
 
-<xsl:output method="xml" version="1.0" encoding="utf-8" indent="no"
+<xsl:output method="html" version="1.0" encoding="utf-8" indent="no"
 	omit-xml-declaration="no" media-type="text/html"
 	doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
     doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" />
 
 <xsl:strip-space elements="*" />
 
-<xsl:param name="wsdl-viewer.version">3.1.01</xsl:param>
+<xsl:param name="wsdl-viewer.version">3.1.02</xsl:param>
 
 <xsl:include href="wsdl-viewer-global.xsl"/>
 <xsl:include href="wsdl-viewer-css.xsl"/>
