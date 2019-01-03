@@ -2,8 +2,6 @@
 
 Tool to visualize web-service in an intuitive way.
 
-## About
-
 Example HTML documentation for [Amazon AWS ECommerce Service](http://services.w3.org/xslt?xslfile=http://tomi.vanek.sk/xml/wsdl-viewer.xsl&amp;xmlfile=http://webservices.amazon.com/AWSECommerceService/2013-08-01/AWSECommerceService.wsdl&amp;transform=Submit).
 
 You can test the viewer with your web service on [http://tomi.vanek.sk](http://tomi.vanek.sk).
@@ -14,7 +12,7 @@ I hope you will find the web service viewer tool useful.
 
 ## Usage 1: Stylesheet link in WSDL
 
-An elegant option is to add the userfriendly face directly into the WSDL. This way by opening the WSDL in a browser the transformation prepares on-fly the HTML view. This requires just this changes in WSDL: The WSDL is just an XML. Adding a processing instruction can suggest the browser to use on-fly the XSLT to convert the WSDL into a human-readable HTML page. Example of the instruction:
+An elegant option is to add the userfriendly face directly into the WSDL. This way by opening the WSDL in a browser the transformation prepares on-fly the HTML view. This requires just this changes in WSDL: The WSDL is just an XML, so adding a processing instruction can suggest the browser to use on-fly the XSLT to convert the WSDL into a human-readable HTML page. Example of the instruction:
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>

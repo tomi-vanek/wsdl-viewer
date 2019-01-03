@@ -163,7 +163,7 @@
 
    <xsl:strip-space elements="*"/>
 
-   <xsl:param name="wsdl-viewer.version">3.1.01</xsl:param>
+   <xsl:param name="wsdl-viewer.version">3.1.03</xsl:param>
 
 
 
