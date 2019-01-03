@@ -140,6 +140,7 @@
 * 	2007-12-23 - 3.1.01 - Terminating message by WS without interface or service definition was removed
 * 						  (seems to be a correct state)
 * 	2008-08-20 - 3.1.02 - Woden-214: Anti-recursion bypassed in xsd:choice element
+* 	2019-01-03 - 3.1.03 - Fix for `small` tag - recursively smaller text
 * ====================================================================
 -->
 
