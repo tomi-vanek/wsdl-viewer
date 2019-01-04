@@ -6,9 +6,9 @@ Example HTML documentation for [Amazon AWS ECommerce Service](http://services.w3
 
 You can see your WSDL rendered by _wsdl-viewer_ using a form on [http://tomi.vanek.sk](http://tomi.vanek.sk).
 
-WSDL has its constructive logic, but it is hard to read / understand the content by business professionals (mostly non-programmers). Here is a small tool to visualize the web-service in a more intuitive way. I developed this transformation for WSDL interface analysis (to understand the service business functionality).
+WSDL has its constructive logic, but it is hard to read / understand the content by business professionals (mostly non-programmers). Here is a small tool to visualize the web-service in a more intuitive way and to generate human-readable documentation.
 
-I hope you will find the web service viewer tool useful.
+I developed this transformation for WSDL interface analysis of a complex system.
 
 ## Use option 1: Online generated documentation
 
