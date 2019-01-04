@@ -39,7 +39,7 @@ Of course in this case the XSLT is placed in the same directory as the WSDL. You
 
 Some legacy web-browsers are not able by default automatically recognize the .wsdl file type (suffix). For the type recognition the WSDL file has to be renamed by adding the suffix .xml - i.e. myservice.wsdl.xml.
 
-### 3) command-line or batch execution of XSLT
+### 3) Command-line or batch execution of XSLT
 
 A set of WSDL-s can be converted into web pages (HTML) from command line or in a batch process (i.e. an ANT script, that has native XSLT support).
 
