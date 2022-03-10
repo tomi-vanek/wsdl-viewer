@@ -20,7 +20,7 @@ A smart composite URL uses the [W3C XSLT service](https://www.w3.org/2001/05/xsl
 
 Example URL for the online transformation:
 
-[http://services.w3.org/xslt?xslfile=http://tomi.vanek.sk/xml/wsdl-viewer.xsl&xmlfile=http://webservices.amazon.com/AWSECommerceService/2013-08-01/AWSECommerceService.wsdl](http://services.w3.org/xslt?xslfile=http://tomi.vanek.sk/xml/wsdl-viewer.xsl&xmlfile=http://webservices.amazon.com/AWSECommerceService/2013-08-01/AWSECommerceService.wsdl)
+[http://services.w3.org/xslt?xslfile=http://tomi.vanek.sk/xml/wsdl-viewer.xsl&xmlfile=http://www.dneonline.com/calculator.asmx?wsdl](http://services.w3.org/xslt?xslfile=http://tomi.vanek.sk/xml/wsdl-viewer.xsl&xmlfile=http://www.dneonline.com/calculator.asmx?wsdl)
 
 ### 2) Stylesheet link in WSDL
 
