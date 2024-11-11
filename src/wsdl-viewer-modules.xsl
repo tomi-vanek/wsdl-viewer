@@ -21,13 +21,12 @@
 <!--
 * ====================================================================
 * wsdl-viewer.xsl
-* Version: 3.1.01
+* Version: 3.1.04
 *
 * URL: http://tomi.vanek.sk/xml/wsdl-viewer.xsl
 *
 * Author: tomi vanek
 * Inspiration: Uche Ogbui - WSDL processing with XSLT
-* 		http://www-106.ibm.com/developerworks/library/ws-trans/index.html
 * ====================================================================
 -->
 
@@ -99,10 +98,6 @@
 * 	* Development architecture
 * 		- Setup of the development infrastructure
 * 		- Unit testing
-* 		? Collaboration platform
-* 	* Documentation, web
-* 		- Better user guide
-* 		? Forum, Wiki
 * ====================================================================
 -->
 
@@ -141,6 +136,7 @@
 * 						  (seems to be a correct state)
 * 	2008-08-20 - 3.1.02 - Woden-214: Anti-recursion bypassed in xsd:choice element
 * 	2019-01-03 - 3.1.03 - Fix for `small` tag - recursively smaller text
+* 	2024-11-11 - 3.1.04 - Fix - removed missing included javascript (the JS functionality was never implemented)
 * ====================================================================
 -->
 
@@ -202,10 +198,6 @@
 	<meta name="MSSmartTagsPreventParsing" content="true" />
 
 	<style type="text/css"><xsl:value-of select="$css" disable-output-escaping="yes" /></style>
-
-	<script src="wsdl-viewer.js" type="text/javascript" language="javascript"> <xsl:comment><xsl:text>
-	// </xsl:text></xsl:comment>
-	</script>
 </head>
 </xsl:template>
 
@@ -217,9 +209,6 @@
 <xsl:template name="body.render">
 <body id="operations"><div id="outer_box"><div id="inner_box" onload="pagingInit()">
 	<xsl:call-template name="title.render"/>
-<!-- TODO: pages with tabs for selecting some aspect of the WSDL
-	<xsl:call-template name="navig.render"/>
--->
 	<xsl:call-template name="content.render"/>
 	<xsl:call-template name="footer.render"/>
 </div></div></body>
