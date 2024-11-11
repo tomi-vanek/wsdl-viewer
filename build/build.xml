@@ -2,7 +2,7 @@
 
 <project name="wsdl-viewer" default="build" basedir="..">
 
-	<property name="version" value="3-1-02"/>
+	<property name="version" value="3-1-04"/>
 
 	<!-- Project directories -->
 	<property name="app" value="${basedir}/src"/>
