@@ -150,10 +150,7 @@
 	xmlns:local="http://tomi.vanek.sk/xml/wsdl-viewer"
 	exclude-result-prefixes="ws ws2 xsd soap local">
 
-<xsl:output method="html" version="1.0" encoding="utf-8" indent="no"
-	omit-xml-declaration="no" media-type="text/html"
-	doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
-    doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN" />
+<xsl:output method="html" doctype-system="about:legacy-compat" encoding="utf-8" indent="no" media-type="text/html" />
 
 <xsl:strip-space elements="*" />
 
