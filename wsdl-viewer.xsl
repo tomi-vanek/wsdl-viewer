@@ -23,13 +23,12 @@
 <!--
 * ====================================================================
 * wsdl-viewer.xsl
-* Version: 3.1.01
+* Version: 3.1.04
 *
 * URL: http://tomi.vanek.sk/xml/wsdl-viewer.xsl
 *
 * Author: tomi vanek
 * Inspiration: Uche Ogbui - WSDL processing with XSLT
-* 		http://www-106.ibm.com/developerworks/library/ws-trans/index.html
 * ====================================================================
 -->
 
@@ -102,10 +101,6 @@
 * 	* Development architecture
 * 		- Setup of the development infrastructure
 * 		- Unit testing
-* 		? Collaboration platform
-* 	* Documentation, web
-* 		- Better user guide
-* 		? Forum, Wiki
 * ====================================================================
 -->
 
@@ -145,6 +140,7 @@
 * 						  (seems to be a correct state)
 * 	2008-08-20 - 3.1.02 - Woden-214: Anti-recursion bypassed in xsd:choice element
 * 	2019-01-03 - 3.1.03 - Fix for `small` tag - recursively smaller text
+* 	2024-11-11 - 3.1.04 - Fix - removed missing included javascript (the JS functionality was never implemented)
 * ====================================================================
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml" xmlns:ws="http://schemas.xmlsoap.org/wsdl/" xmlns:ws2="http://www.w3.org/ns/wsdl" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:local="http://tomi.vanek.sk/xml/wsdl-viewer" version="1.0" exclude-result-prefixes="ws ws2 xsd soap local">
@@ -153,7 +149,7 @@
     
     <xsl:strip-space elements="*"/>
     
-    <xsl:param name="wsdl-viewer.version">3.1.02</xsl:param>
+    <xsl:param name="wsdl-viewer.version">3.1.04</xsl:param>
     
     <!--
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -3079,10 +3075,6 @@ h3 {
                 <div id="inner_box" onload="pagingInit()">
                     	
                     <xsl:call-template name="title.render"/>
-                    
-                    <!-- TODO: pages with tabs for selecting some aspect of the WSDL
-	<xsl:call-template name="navig.render"/>
--->
                     	
                     <xsl:call-template name="content.render"/>
                     	
