@@ -157,7 +157,7 @@
 
 <xsl:strip-space elements="*" />
 
-<xsl:param name="wsdl-viewer.version">3.1.02</xsl:param>
+<xsl:param name="wsdl-viewer.version">3.1.04</xsl:param>
 
 <xsl:include href="wsdl-viewer-global.xsl"/>
 <xsl:include href="wsdl-viewer-css.xsl"/>
